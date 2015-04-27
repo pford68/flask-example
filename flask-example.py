@@ -16,7 +16,7 @@ def getAll():
 
 @app.route('/todos/<id>')
 def get(id):
-    return todos.get(id)
+    return todos[id]
 
 
 @app.route('/')
