@@ -35,6 +35,7 @@ class DevelopmentBaseProfile(BaseProfile):
         db.session.commit()
 
     def __del__(self):
+        # PF:  This is not being called when the application stops.
         db.drop_all()
 
 
