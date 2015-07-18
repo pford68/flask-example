@@ -1,3 +1,5 @@
+__author__ = 'Philip Ford'
+
 from flask import Flask, jsonify
 from todo import Todo
 

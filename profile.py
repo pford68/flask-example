@@ -1,4 +1,4 @@
-__author__ = 'Philip'
+__author__ = 'Philip Ford'
 
 from todo import *
 import os
