@@ -13,7 +13,7 @@ def get_all():
     result = []
     for row in rows:
         result.append(row.to_dict())
-    return jsonify(todos=result)
+    return jsonify(todos=result)    # jsonify needs a root in order work with lists
 
 
 @app.route('/todos/<id>', methods=['GET'])
