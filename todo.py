@@ -20,9 +20,6 @@ class Todo(db.Model):
         self.name = name
         self.description = description
 
-    def __str__(self):
-        return self.name
-
     def __repr__(self):
         return "<Todo(id='%d', name='%s', description='%s')>" % (self.id, self.name, self.description)
 
