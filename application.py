@@ -2,6 +2,7 @@ __author__ = 'Philip Ford'
 
 from flask import Flask, jsonify
 from todo import Todo
+import profile
 
 app = Flask(__name__)
 
