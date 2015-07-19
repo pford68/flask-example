@@ -39,7 +39,7 @@ class DevelopmentBaseProfile(BaseProfile):
         db.drop_all()
 
 
-if os.environ.get('FLASK_MODE') == "PRODUCTION":
+if os.environ.get('FLASK_ACTIVE_PROFILE') == "PRODUCTION":
     profile = ProductionBaseProfile(True)
 else:
     profile = DevelopmentBaseProfile(True)
