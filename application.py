@@ -11,6 +11,9 @@ app = Flask(__name__)
 def get_all():
     rows = Todo.query.all()
     result = []
+    # Can't serialize most objects as JSON.
+    # (1) First covert each object to a dictionary
+    # (2) And add each to a new list.
     for row in rows:
         result.append(row.to_dict())
     return jsonify(todos=result)    # jsonify needs a root in order work with lists
