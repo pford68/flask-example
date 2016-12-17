@@ -1,7 +1,6 @@
 from todo import *
 import os
 
-__author__ = 'Philip Ford'
 
 class BaseProfile:
     """ Abstract base class for profiles"""
