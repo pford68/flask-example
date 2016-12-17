@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from todo import Todo
 import profile
 
-__author__ = 'Philip Ford'
 
 app = Flask(__name__)
 

@@ -1,7 +1,5 @@
 import os
 
-__author__ = 'Philip Ford'
-
 
 class Config(object):
     DEBUG = False

@@ -1,6 +1,3 @@
-__author__ = 'Philip Ford'
-
-
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from configuration import *
