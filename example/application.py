@@ -6,10 +6,10 @@ import example.profile
 
 
 app = Flask(__name__)
-app.config.from_object(get_config())
-app.app_context().push()
-conn.init_app(app)
-profile = example.profile.init()
+app.config.from_object(get_config())      # Configuring the app based on the Configuration class
+app.app_context().push()                  # Necessary for the next line to add the app to the SQLAlchemy object.
+conn.init_app(app)                        # Initializing the global SQLAlchemy object after the app has been created.
+profile = example.profile.init()          # Assign the profile to a reference to avoid garbage collection.
 
 
 @app.route('/todos', methods=['GET'])
