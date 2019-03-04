@@ -1,9 +1,15 @@
 from flask import Flask, jsonify
-from todo import Todo
-import profile
+from example import conn
+from example.todo import Todo
+from example.configuration import get_config
+import example.profile
 
 
 app = Flask(__name__)
+app.config.from_object(get_config())
+app.app_context().push()
+conn.init_app(app)
+profile = example.profile.init()
 
 
 @app.route('/todos', methods=['GET'])
@@ -18,7 +24,7 @@ def get_all():
     return jsonify(todos=result)    # jsonify needs a root in order work with lists
 
 
-@app.route('/todos/<id>', methods=['GET'])
+@app.route('/todo/<id>', methods=['GET'])
 def get(id):
     row = Todo.query.filter(Todo.id == id).first()
     return jsonify(todo=row.to_dict())

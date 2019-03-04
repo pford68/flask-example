@@ -1,17 +1,11 @@
-from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
-from configuration import get_config
-
-application = Flask(__name__)
-application.config.from_object(get_config())
-db = SQLAlchemy(application)
+from example import conn
 
 
-class Todo(db.Model):
+class Todo(conn.Model):
     __tablename__ = 'todo'
-    id = db.Column("id", db.Integer, primary_key=True)
-    name = db.Column("name", db.String(50), unique=True)
-    description = db.Column("description", db.String(255), unique=True)
+    id = conn.Column("id", conn.Integer, primary_key=True)
+    name = conn.Column("name", conn.String(50), unique=True)
+    description = conn.Column("description", conn.String(255), unique=True)
 
     def __init__(self, name, description):
         self.name = name

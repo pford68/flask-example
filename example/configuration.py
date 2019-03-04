@@ -6,12 +6,13 @@ class Config(object):
     TESTING = False
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_RECORD_QUERIES = False
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:macedon2@localhost/todos_dev'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/todos_dev'
     DESTROY_ON_CLOSE = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:macedon2@localhost/todos_prod'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/todos_prod'
 
 
 class DevelopmentConfig(Config):

@@ -1,5 +1,6 @@
-from todo import *
 import os
+from example import conn
+from example.todo import Todo
 
 
 class BaseProfile:
@@ -22,22 +23,24 @@ class DevelopmentBaseProfile(BaseProfile):
 
     def __init__(self, active):
         self.active = active
-        db.drop_all()
-        db.create_all()
+        conn.drop_all()
+        conn.create_all()
         items = [
             Todo("Check the Audi", "The TPM warning is on again."),
             Todo("Get suitcase", "I want the large Tumi wheeled duffel for the trip to Europe.")
         ]
         for item in items:
-            db.session.add(item)
-        db.session.commit()
+            conn.session.add(item)
+        conn.session.commit()
 
     def __del__(self):
         # PF:  This is not being called when the application stops.
-        db.drop_all()
+        conn.drop_all()
 
 
-if os.environ.get('FLASK_ACTIVE_PROFILE') == "PRODUCTION":
-    profile = ProductionBaseProfile(True)
-else:
-    profile = DevelopmentBaseProfile(True)
+def init():
+    if os.environ.get('FLASK_ACTIVE_PROFILE') == "PRODUCTION":
+        profile = ProductionBaseProfile(True)
+    else:
+        profile = DevelopmentBaseProfile(True)
+    return profile
