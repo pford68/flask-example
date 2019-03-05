@@ -26,8 +26,8 @@ class DevelopmentBaseProfile(BaseProfile):
         conn.drop_all()
         conn.create_all()
         items = [
-            Todo("Check the Audi", "The TPM warning is on again."),
-            Todo("Get suitcase", "I want the large Tumi wheeled duffel for the trip to Europe.")
+            Todo(name="Check the Audi", description="The TPM warning is on again."),
+            Todo(name="Get suitcase", description="I want the large Tumi wheeled duffel for the trip to Europe.")
         ]
         for item in items:
             conn.session.add(item)

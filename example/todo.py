@@ -7,10 +7,6 @@ class Todo(conn.Model):
     name = conn.Column("name", conn.String(50), unique=True)
     description = conn.Column("description", conn.String(255), unique=True)
 
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-
     def __repr__(self):
         return "<Todo(id='%d', name='%s', description='%s')>" % (self.id, self.name, self.description)
 
